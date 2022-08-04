@@ -3,20 +3,21 @@ info:
   title: OpenAPI definition
   version: v0
 servers:
-- url: http://localhost:8080
-  description: Generated server url
+  - url: http://localhost:8080
+    description: Generated server url
 paths:
   /account/{accountNo}/transaction:
     post:
       tags:
-      - account-controller
+        - account-controller
+      summary: Create a transaction for transferring money from one account to another
       operationId: createTransaction
       parameters:
-      - name: accountNo
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: accountNo
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -24,26 +25,31 @@ paths:
               $ref: '#/components/schemas/CreateTransactionDto'
         required: true
       responses:
-        "200":
-          description: OK
+        "201":
+          description: "Transaction created, money transfer succeeded"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/TransactionDto'
+        "400":
+          description: "Transaction failure, see the error message for more detail"
   /account/{accountNo}/balance:
     get:
       tags:
-      - account-controller
+        - account-controller
+      summary: Get account balance by account No.
       operationId: getAccountBalance
       parameters:
-      - name: accountNo
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: accountNo
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
+        "404":
+          description: Account not found
         "200":
-          description: OK
+          description: Found the account with balance
           content:
             application/json:
               schema:
@@ -52,8 +58,8 @@ components:
   schemas:
     CreateTransactionDto:
       required:
-      - currency
-      - toAccountNo
+        - currency
+        - toAccountNo
       type: object
       properties:
         toAccountNo:
