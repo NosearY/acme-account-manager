@@ -16,17 +16,7 @@ Cd into the project root folder
 
 >cd acme-account-manager
 
-## Run (Dev)
-
-Windows
-> .\gradlew.bat bootRun -Pprofile=dev
-
-Linux
-> chmod u+x gradlew && ./gradlew bootRun -Pprofile=dev
-
-An empty in-memory H2 database is setup where you can login into `http://localhost:8080/h2-console` to view or modify any data.
-
-## Run (Production)
+## Run
 
 Windows
 > .\gradlew.bat bootRun
