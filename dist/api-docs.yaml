@@ -1,0 +1,89 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- url: http://localhost:8080
+  description: Generated server url
+paths:
+  /account/{accountNo}/transaction:
+    post:
+      tags:
+      - account-controller
+      operationId: createTransaction
+      parameters:
+      - name: accountNo
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTransactionDto'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionDto'
+  /account/{accountNo}/balance:
+    get:
+      tags:
+      - account-controller
+      operationId: getAccountBalance
+      parameters:
+      - name: accountNo
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BalanceDto'
+components:
+  schemas:
+    CreateTransactionDto:
+      required:
+      - currency
+      - toAccountNo
+      type: object
+      properties:
+        toAccountNo:
+          type: string
+        currency:
+          pattern: ^HKD$
+          type: string
+        amount:
+          minimum: 1
+          type: number
+          format: double
+    TransactionDto:
+      type: object
+      properties:
+        referenceId:
+          type: string
+        fromAccount:
+          type: string
+        toAccount:
+          type: string
+        currency:
+          type: string
+        amount:
+          type: number
+          format: double
+    BalanceDto:
+      type: object
+      properties:
+        amount:
+          type: number
+          format: double
+        currency:
+          type: string
