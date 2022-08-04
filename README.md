@@ -6,7 +6,7 @@ A SpringBoot demo application with RESTful API service for account management
 
 Git clone or download the project to your computer
 
-> git clone https://github.com/NosearY/account-manager.git
+> git clone https://github.com/NosearY/acme-account-manager.git
 
 Cd into the project root folder
 
@@ -41,6 +41,6 @@ Two accounts are available from the database out-of-the-box:
 
 ## API Doc
 
-https://petstore.swagger.io/?url=https://github.com/NosearY/account-manager/dist/api-docs.yaml
+https://petstore.swagger.io/?url=https://raw.githubusercontent.com/NosearY/acme-account-manager/main/dist/api-docs.yaml
 
 
