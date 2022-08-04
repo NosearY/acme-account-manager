@@ -1,6 +1,10 @@
 # ACME Bank Account Management Service
 
-A SpringBoot demo application with RESTful API service for account management
+A SpringBoot demo application with RESTful API for account management.
+
+## Requirement
+
+JRE >= 11
 
 ## Usage 
 
@@ -18,7 +22,7 @@ Windows
 > .\gradlew.bat bootRun -Pprofile=dev
 
 Linux
-> ./gradlew bootRun -Pprofile=dev
+> chmod u+x gradlew && ./gradlew bootRun -Pprofile=dev
 
 An empty in-memory H2 database is setup where you can login into `http://localhost:8080/h2-console` to view or modify any data.
 
@@ -28,7 +32,7 @@ Windows
 > .\gradlew.bat bootRun
 
 Linux
-> ./gradlew bootRun
+> chmod u+x gradlew && ./gradlew bootRun
 
 Changes made will be persisted into an H2 database located in ./db/acmedb-prod.h2.mv.db.
 
