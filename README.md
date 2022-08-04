@@ -10,7 +10,7 @@ Git clone or download the project to your computer
 
 Cd into the project root folder
 
->cd account-manager
+>cd acme-account-manager
 
 ## Run (Dev)
 
